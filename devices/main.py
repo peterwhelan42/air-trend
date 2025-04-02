@@ -197,7 +197,7 @@ class SerialDevice:
             except UnicodeDecodeError:
                 continue
 
-            response = response.split(self.delimiter)
+            response = response.split(self.eol_delimiter)
             yield self._format_response(timestamp, response)
 
     def _poll_line(self) -> Iterator[dict]:
